@@ -4,7 +4,7 @@
     <p class="card-text">{{product?.description}}</p>
     <div class="the-flex">
         <a [routerLink]="['/products', product?.id, 'edit']" class="btn btn-primary">Edit</a>
-        <a (click)="onDelete()" type='button' class="btn btn-danger">Delete</a>
+        <a (click)="onDelete(product?.id)" type='button' class="btn btn-danger">Delete</a>
     </div>
 </div>
 <div class="card-footer" style="background-color: white;">

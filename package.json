@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "nodemon server.js",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
@@ -19,10 +19,16 @@
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
     "bootstrap": "^5.2.3",
+    "cookie-parser": "^1.4.6",
+    "express": "^4.18.2",
+    "httpclient": "^0.1.0",
     "material-design": "^0.0.1",
     "mdb-angular-ui-kit": "^3.0.0",
     "mdb-ui-kit": "^6.0.1",
+    "mongoose": "^6.8.0",
+    "morgan": "^1.10.0",
     "ngx-bootstrap": "^9.0.0",
+    "nodemon": "^2.0.20",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
@@ -39,5 +45,17 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
     "typescript": "~4.7.2"
-  }
+  },
+  "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.2.",
+  "main": "karma.conf.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Matiaserodriguez/eccomerce-angular.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Matiaserodriguez/eccomerce-angular/issues"
+  },
+  "homepage": "https://github.com/Matiaserodriguez/eccomerce-angular#readme"
 }

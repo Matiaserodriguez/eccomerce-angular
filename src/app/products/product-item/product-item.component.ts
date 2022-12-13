@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Product } from '../product.model';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-product-item',
@@ -7,14 +9,18 @@ import { Product } from '../product.model';
   styleUrls: ['./product-item.component.css']
 })
 export class ProductItemComponent implements OnInit {
- @Input() product: Product | undefined;
+ @Input() product: Product | null;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private productService: ProductService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  onDelete(){
-    console.log('deleted')
+  onDelete(id: string | undefined){
+    this.product = this.productService.getProduct(id);
+    if (this.product){
+      this.productService.deleteProduct(this.product);
+    }
+    this.router.navigate(['/products']);
   }
 }

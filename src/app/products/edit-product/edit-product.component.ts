@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Product } from '../product.model';
 import { ProductService } from '../product.service';
@@ -9,7 +10,7 @@ import { ProductService } from '../product.service';
   styleUrls: ['./edit-product.component.css']
 })
 export class EditProductComponent implements OnInit {
-  originalProduct: Product | undefined;
+  originalProduct: Product | null;
   product: Product | undefined;
   editMode: boolean = false;
 
@@ -38,8 +39,27 @@ export class EditProductComponent implements OnInit {
       }
     )
   }
-  onCancel() {}
-  onSubmit(f: any) {
-    console.log(f.value);
+  
+  
+  onSubmit(form: NgForm) {
+    const value = form.value;
+    const newProduct = new Product(
+      value.id,
+      value.name,
+      value.imageUrl,
+      value.description,
+      value.price
+    );
+
+    if(this.editMode) {
+      this.productService.updateProduct(this.originalProduct, newProduct);
+    } else {
+      this.productService.addProduct(newProduct)
+    }
+    this.router.navigate(['products']);
+  }
+
+  onCancel() {
+    this.router.navigate(['products']);
   }
 }
