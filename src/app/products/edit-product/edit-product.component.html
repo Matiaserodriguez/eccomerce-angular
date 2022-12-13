@@ -1,0 +1,84 @@
+<div class="container"><div class="row">
+    <div class="the-flex">
+        <li routerLinkActive="active"><a routerLink="/" type="button" class="btn btn-warning btn-sm">↑ Colapse</a></li>
+        <h1>Create Product</h1>
+    </div>
+<div class="col-md-8 panel panel-default" style="margin: 0 auto;">
+    <div class="panel-body">
+  
+      <form id="product-edit" (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <div class="row">
+          <div class="col-sm-12 form-group">
+            <label for="name">Product Title:</label>
+            <input
+              type="text"
+              id="name"
+              class="form-control"
+              size="120"
+              max="120"
+              [ngModel]=product?.name
+              name="name"
+              required>
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="col-sm-12 form-group">
+            <label for="description">Product Description:</label>
+            <input
+              type="text"
+              id="description"
+              class="form-control"
+              size="120"
+              max="255"
+              [ngModel]=product?.description
+              name="description">
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="col-sm-12 form-group">
+            <label for="imageUrl">Product URL:</label>
+            <input
+              type="text"
+              id="url"
+              class="form-control"
+              size="150"
+              max="255"
+              name="url"
+              [ngModel]=product?.imageUrl
+              required>
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 form-group">
+              <label for="price">Product Price:</label>
+              <input
+                type="text"
+                id="price"
+                class="form-control"
+                size="150"
+                max="255"
+                name="price"
+                [ngModel]=product?.price
+                required>
+            </div>
+        </div>
+  
+        <div class="alert alert-danger" *ngIf="!f.valid">“The Product Title, Product Image URL and Product price are required fields.”</div>
+        
+        <br>
+        <div class="row">
+          <div class="col-xs-12 btn-toolbar">
+            <button class="btn btn-success" type="submit" [disabled]="!f.valid">Save</button>
+            <button class="btn btn-primary" type="button" (click)="onCancel()">Cancel</button>
+          </div>
+        </div>
+  
+      </form>
+  
+    </div>
+  </div>
+</div></div>
+  

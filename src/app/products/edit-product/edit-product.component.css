@@ -1,0 +1,14 @@
+input.ng-invalid {
+    border: 1px solid red;
+  }
+  
+.the-flex {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    align-items: center;
+}
+
+li {
+    list-style: none
+}
